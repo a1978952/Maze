@@ -132,7 +132,7 @@ class ViewController: UIViewController {
                                    return
                                }
     
-                self.playerView.center = CGPoint(x: posX, y: posY)
+                self.playerView.center = CGPoint(x: posY, y: posY)
                 }
    
         playerMotionManager.startAccelerometerUpdates(to: OperationQueue.main,  withHandler: handler)
