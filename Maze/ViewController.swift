@@ -115,9 +115,9 @@ class ViewController: UIViewController {
                        self.speedX = 0
                        posX = self.screenSize.width - (self.playerView.frame.width / 2)
                    }
-                   if posX >= self.screenSize.height - (self.playerView.frame.height / 2) {
+                   if posY >= self.screenSize.height - (self.playerView.frame.height / 2) {
                        self.speedY = 0
-                       posX = self.screenSize.height - (self.playerView.frame.height / 2)
+                       posY = self.screenSize.height - (self.playerView.frame.height / 2)
                    }
                 
                 for wallRect in self.wallRectArray {
@@ -127,18 +127,19 @@ class ViewController: UIViewController {
                                    }
                                }
                                
-                               if self.goalView.frame.intersects(self.playerView.frame){
-                                self.gameCheck(result: "clear", message: "クリアしました!")
-                                   return
+            if self.goalView.frame.intersects(self.playerView.frame){
+                self.gameCheck(result: "clear", message: "クリアしました!")
+                return
                                }
     
-                self.playerView.center = CGPoint(x: posY, y: posY)
+                self.playerView.center = CGPoint(x: posX, y: posY)
                 }
    
         playerMotionManager.startAccelerometerUpdates(to: OperationQueue.main,  withHandler: handler)
  }
     
     func gameCheck(result: String, message : String) {
+        
         if playerMotionManager.isAccelerometerActive {
             playerMotionManager.stopAccelerometerUpdates()
         }
@@ -165,3 +166,19 @@ class ViewController: UIViewController {
            }
            
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
